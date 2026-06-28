@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site } from "@/content/site";
-import { TreeMark, YoutubeIcon, InstagramIcon } from "./Icons";
+import { TreeMark, YoutubeIcon, InstagramIcon, TikTokIcon } from "./Icons";
 
 export default function Footer() {
   return (
@@ -59,6 +59,15 @@ export default function Footer() {
               className="hover:text-cream transition-colors"
             >
               <InstagramIcon />
+            </a>
+            <a
+              href={site.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="hover:text-cream transition-colors"
+            >
+              <TikTokIcon />
             </a>
           </div>
           <a

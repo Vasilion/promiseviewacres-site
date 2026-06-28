@@ -1,3 +1,13 @@
+import { notFound } from "next/navigation";
+
+// Resources page is HIDDEN for now (removed from nav in site.ts).
+// To re-enable: restore the ComingSoon (or real content) block below and
+// add the nav item back to `site.nav`.
+export default function ResourcesPage() {
+  notFound();
+}
+
+/*
 import type { Metadata } from "next";
 import ComingSoon from "@/components/ComingSoon";
 
@@ -15,3 +25,4 @@ export default function ResourcesPage() {
     />
   );
 }
+*/

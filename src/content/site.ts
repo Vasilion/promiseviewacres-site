@@ -8,18 +8,18 @@
 export const site = {
   name: "Promise View Acres",
   tagline: "Faith · Family · Land · Purpose",
-  // External destinations — placeholders until Luke supplies real handles.
-  youtube: "https://www.youtube.com/", // TODO: real channel
-  instagram: "https://www.instagram.com/", // TODO: real handle
-  email: "hello@promiseviewacres.com", // TODO: confirm inbox
+  // External destinations.
+  youtube: "https://www.youtube.com/@promiseviewacres",
+  instagram: "https://www.instagram.com/promiseviewacres",
+  tiktok: "https://www.tiktok.com/@promiseviewacres",
+  email: "promiseviewacres@gmail.com",
 
   nav: [
     { label: "Home", href: "/" },
     { label: "Our Story", href: "/our-story" },
     { label: "The Journey", href: "/journey" },
-    { label: "Journal", href: "/journal" },
+    { label: "Gallery", href: "/gallery" },
     { label: "Beyond Organic Gardening", href: "/beyond-organic-gardening" },
-    { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;
@@ -63,11 +63,11 @@ export const home = {
     intro:
       "The areas we're currently focused on as we continue building and improving what God has entrusted to us.",
     cards: [
-      { title: "Greenhouse", body: "Planting, growing, and preparing for abundant harvests." },
-      { title: "Garden", body: "Building healthy soil and growing food for our family." },
-      { title: "Property", body: "Landscaping, improving, and stewarding 21 acres God led us to." },
-      { title: "Projects", body: "Building, fixing, and creating things that serve our purpose." },
-      { title: "Family Life", body: "Establishing rhythms and memories that matter most." },
+      // Greenhouse card hidden for now — re-add when its photo is ready.
+      { title: "Garden", body: "Building healthy soil and growing food for our family.", image: "/images/gallery/img_4408.jpg" },
+      { title: "Property", body: "Landscaping, improving, and stewarding 21 acres God led us to.", image: "/images/stewardship/property.jpg" },
+      { title: "Projects", body: "Building, fixing, and creating things that serve our purpose.", image: "/images/gallery/img_6011.jpg" },
+      { title: "Family Life", body: "Establishing rhythms and memories that matter most.", image: "/images/gallery/img_4779.jpg" },
     ],
   },
 } as const;

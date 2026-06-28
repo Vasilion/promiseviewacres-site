@@ -88,6 +88,15 @@ export function InstagramIcon(p: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function TikTokIcon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5c.34 0 .67.05 1 .14" />
+      <path d="M14 4c.4 2.2 1.9 3.8 4 4.2" />
+    </svg>
+  );
+}
+
 export function TreeMark(p: SVGProps<SVGSVGElement>) {
   return (
     <svg

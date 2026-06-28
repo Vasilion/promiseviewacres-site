@@ -1,0 +1,24 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Use Node 20 (Next 16 + React 19 require >= 18.18; 20 is the safe target)
+        - nvm install 20
+        - nvm use 20
+        # Enable pnpm via corepack and install with the committed lockfile
+        - corepack enable
+        - corepack prepare pnpm@10.33.2 --activate
+        - pnpm install --frozen-lockfile
+    build:
+      commands:
+        - pnpm run build
+  artifacts:
+    # Next.js SSR output — Amplify's managed Next.js adapter consumes .next
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .next/cache/**/*
+      - node_modules/**/*

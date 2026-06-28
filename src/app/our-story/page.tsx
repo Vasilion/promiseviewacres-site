@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
 import { ourStory } from "@/content/site";
@@ -12,23 +13,34 @@ export const metadata: Metadata = {
 export default function OurStoryPage() {
   return (
     <>
-      {/* Intro */}
-      <section className="bg-earth text-cream">
-        <div className="container-pv py-24 sm:py-28 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage mb-4">
-            Our Story
-          </p>
-          <h1 className="text-cream text-3xl sm:text-5xl max-w-3xl mx-auto leading-tight">
-            {ourStory.intro}
-          </h1>
+      {/* Logo banner */}
+      <section className="bg-cream border-b border-earth/10">
+        <div className="container-pv py-6 sm:py-8 flex justify-center">
+          <Image
+            src="/images/pva-logo.jpg"
+            alt="Promise View Acres"
+            width={4585}
+            height={4201}
+            priority
+            sizes="(max-width: 768px) 18rem, 24rem"
+            className="w-64 sm:w-80 md:w-96 h-auto mix-blend-multiply"
+          />
         </div>
       </section>
 
-      {/* Invitation */}
-      <section className="py-20">
+      {/* Intro heading + invitation */}
+      <section className="pt-12 sm:pt-16 pb-20">
         <div className="container-pv max-w-3xl">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage mb-4">
+              Our Story
+            </p>
+            <h1 className="text-earth text-3xl sm:text-4xl lg:text-5xl leading-tight">
+              {ourStory.intro}
+            </h1>
+          </div>
           <Reveal>
-            <p className="text-lg sm:text-xl leading-relaxed text-earth/85">
+            <p className="mt-12 text-lg sm:text-xl leading-relaxed text-earth/85">
               {ourStory.invitation}
             </p>
           </Reveal>
@@ -45,25 +57,26 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* Picture of the Promise */}
+      {/* Picture of the Promise — story film */}
       <section className="py-8">
         <div className="container-pv">
           <Reveal>
-            <figure className="relative rounded-3xl overflow-hidden border border-earth/10">
-              {/* Replace with real "Picture of the Promise" image */}
-              <div
-                className="aspect-[21/9] w-full"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #6a5643 0%, #246b03 60%, #72b030 100%)",
-                }}
-                aria-hidden
-              />
-              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-earth/80 to-transparent p-6">
-                <p className="text-cream font-display text-2xl">
+            <figure>
+              <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-earth/10 bg-earth">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube-nocookie.com/embed/ZQ9eCLp-9Lk"
+                  title={ourStory.pictureOfThePromise.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+              <figcaption className="mt-4 text-center">
+                <p className="font-display text-2xl text-earth">
                   {ourStory.pictureOfThePromise.title}
                 </p>
-                <p className="text-cream/80 text-sm mt-1">
+                <p className="text-earth/70 text-sm mt-1">
                   {ourStory.pictureOfThePromise.caption}
                 </p>
               </figcaption>

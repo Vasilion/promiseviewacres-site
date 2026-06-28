@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -66,19 +67,31 @@ export default function HomePage() {
             </SectionHeading>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {home.stewardship.cards.map((card, i) => (
               <Reveal key={card.title} delay={i * 0.06}>
                 <article className="group h-full rounded-2xl bg-linen border border-earth/10 overflow-hidden">
-                  {/* Image placeholder block (replace with real photos) */}
-                  <div
-                    className="h-36 w-full"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #72b030 0%, #246b03 100%)",
-                    }}
-                    aria-hidden
-                  />
+                  {card.image ? (
+                    <div className="relative h-56 w-full overflow-hidden">
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                      />
+                    </div>
+                  ) : (
+                    /* Greenhouse — photo coming soon; gradient placeholder for now */
+                    <div
+                      className="h-56 w-full"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #72b030 0%, #246b03 100%)",
+                      }}
+                      aria-hidden
+                    />
+                  )}
                   <div className="p-5">
                     <h3 className="text-lg text-earth mb-1.5">{card.title}</h3>
                     <p className="text-sm leading-relaxed text-earth/70">

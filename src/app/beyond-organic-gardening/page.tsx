@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { SproutIcon, LeafIcon, HandsIcon } from "@/components/Icons";
@@ -17,21 +18,40 @@ export default function BeyondOrganicPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-evergreen text-cream">
-        <div className="container-pv py-24 sm:py-28">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cream/70 mb-4">
+      {/* Photo hero banner */}
+      <section className="relative flex items-center justify-center overflow-hidden min-h-[42vh] sm:min-h-[48vh]">
+        <Image
+          src="/images/beyond-organic-banner.jpg"
+          alt="Fresh-picked strawberries from the homestead garden"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-10 object-cover object-center"
+        />
+        {/* Scrim for text legibility over the bright photo */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(34,33,28,0.35) 0%, rgba(34,33,28,0.30) 40%, rgba(34,33,28,0.60) 100%)",
+          }}
+          aria-hidden
+        />
+        <div className="container-pv py-20 sm:py-24 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cream/80 mb-4">
             Beyond Organic
           </p>
-          <h1 className="text-cream text-4xl sm:text-5xl max-w-3xl">
+          <h1 className="text-cream text-4xl sm:text-5xl max-w-3xl mx-auto">
             {hero.title}
           </h1>
-          <p className="mt-4 text-lg text-cream/85 max-w-xl">{hero.subtitle}</p>
+          <p className="mt-4 text-lg text-cream/90 max-w-xl mx-auto">
+            {hero.subtitle}
+          </p>
         </div>
       </section>
 
       {/* What is it */}
-      <section className="py-20">
+      <section className="pt-16 sm:pt-20 pb-20">
         <div className="container-pv max-w-3xl">
           <Reveal>
             <h2 className="text-3xl text-earth mb-6">{whatIsIt.heading}</h2>

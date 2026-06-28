@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import Button from "./Button";
@@ -31,26 +32,24 @@ export default function Hero() {
       ref={root}
       className="relative min-h-[88vh] flex items-end overflow-hidden"
     >
-      {/* Background image placeholder — replace with hero photo.
-          Using a layered gradient evoking a sunset homestead until the
-          real image is provided (see vault: hero photo TODO). */}
+      {/* Hero photo — family on the homestead window bench. */}
+      <Image
+        src="/images/hero.jpg"
+        alt="The family at home on Promise View Acres, overlooking the water"
+        fill
+        priority
+        sizes="100vw"
+        className="-z-10 object-cover object-center"
+      />
+      {/* Darkening scrim so the cream headline stays legible over a bright photo. */}
       <div
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(180deg, #6a5643 0%, #8a755e 35%, #246b03 120%)",
+            "linear-gradient(180deg, rgba(34,33,28,0.10) 0%, rgba(34,33,28,0.15) 45%, rgba(34,33,28,0.78) 100%)",
         }}
         aria-hidden
       />
-      <div
-        className="absolute inset-0 -z-10 opacity-30"
-        style={{
-          background:
-            "radial-gradient(120% 80% at 70% 10%, #f2eadc 0%, transparent 55%)",
-        }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 -z-10 bg-black/20" aria-hidden />
 
       <div className="container-pv pb-20 pt-32">
         <h1 className="max-w-3xl text-cream text-4xl sm:text-6xl font-display leading-[1.05]">
