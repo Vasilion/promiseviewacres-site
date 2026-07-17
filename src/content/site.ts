@@ -19,7 +19,6 @@ export const site = {
     { label: "Our Story", href: "/our-story" },
     { label: "The Journey", href: "/journey" },
     { label: "Gallery", href: "/gallery" },
-    { label: "Beyond Organic Gardening", href: "/beyond-organic-gardening" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;
