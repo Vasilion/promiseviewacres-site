@@ -5,9 +5,16 @@ import { InstagramIcon } from "@/components/Icons";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Gallery — Promise View Acres",
+  title: "Gallery",
   description:
     "Photographs from the homestead — the land, the harvest, and life on Promise View Acres.",
+  alternates: { canonical: "/gallery" },
+  openGraph: {
+    title: "Gallery — Promise View Acres",
+    description:
+      "Photographs from the homestead — the land, the harvest, and life on Promise View Acres.",
+    url: "/gallery",
+  },
 };
 
 export default function GalleryPage() {

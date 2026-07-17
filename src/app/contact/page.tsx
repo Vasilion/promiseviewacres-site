@@ -4,8 +4,16 @@ import { YoutubeIcon, InstagramIcon, TikTokIcon } from "@/components/Icons";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Contact — Promise View Acres",
-  description: "Get in touch with Promise View Acres.",
+  title: "Contact",
+  description:
+    "Get in touch with Promise View Acres — questions, encouragement, or to say hello.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact — Promise View Acres",
+    description:
+      "Get in touch with Promise View Acres — questions, encouragement, or to say hello.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {

@@ -3,9 +3,16 @@ import { getJourneyContent, groupByYear } from "@/lib/youtube";
 import JourneyTimeline from "@/components/JourneyTimeline";
 
 export const metadata: Metadata = {
-  title: "The Journey — Promise View Acres",
+  title: "The Journey",
   description:
     "Every step of the homestead journey — our YouTube videos, year by year.",
+  alternates: { canonical: "/journey" },
+  openGraph: {
+    title: "The Journey — Promise View Acres",
+    description:
+      "Every step of the homestead journey — our YouTube videos, year by year.",
+    url: "/journey",
+  },
 };
 
 // Re-pull from YouTube daily so new uploads appear automatically.

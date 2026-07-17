@@ -5,9 +5,16 @@ import Reveal from "@/components/Reveal";
 import { ourStory } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Our Story — Promise View Acres",
+  title: "Our Story",
   description:
     "Two imperfect people deciding to trust God with their land, their family, and their life.",
+  alternates: { canonical: "/our-story" },
+  openGraph: {
+    title: "Our Story — Promise View Acres",
+    description:
+      "Two imperfect people deciding to trust God with their land, their family, and their life.",
+    url: "/our-story",
+  },
 };
 
 export default function OurStoryPage() {
