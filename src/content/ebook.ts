@@ -19,7 +19,7 @@ export const ebook = {
   // without a code change; fall back to this literal for local scaffolding.
   paymentLinkUrl:
     process.env.NEXT_PUBLIC_EBOOK_PAYMENT_LINK ||
-    "https://buy.stripe.com/test_placeholder",
+    "https://buy.stripe.com/fZu14oa6g95g9k502vgnK00",
 
   // Longer sales copy. Paragraphs render in order.
   description: [
