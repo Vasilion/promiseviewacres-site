@@ -12,6 +12,12 @@ frontend:
         - pnpm install --frozen-lockfile
     build:
       commands:
+        # Amplify injects console env vars into the BUILD environment but NOT
+        # into the Next.js SSR runtime (Lambda). Per AWS's documented workaround,
+        # write the server-side vars the app reads at request time into
+        # .env.production so Next.js loads them at runtime. (NEXT_PUBLIC_* are
+        # already inlined at build and don't need this.)
+        - env | grep -E '^(STRIPE_SECRET_KEY|STRIPE_WEBHOOK_SECRET|CONTACT_FROM_EMAIL|CONTACT_TO_EMAIL|CONTACT_SES_REGION|YOUTUBE_API_KEY)=' >> .env.production || true
         - pnpm run build
   artifacts:
     # Next.js SSR output — Amplify's managed Next.js adapter consumes .next
