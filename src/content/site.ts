@@ -19,6 +19,7 @@ export const site = {
     { label: "Our Story", href: "/our-story" },
     { label: "The Journey", href: "/journey" },
     { label: "Gallery", href: "/gallery" },
+    { label: "Ebook", href: "/ebook" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

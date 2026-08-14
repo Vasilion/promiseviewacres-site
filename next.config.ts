@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "img.youtube.com" },
     ],
   },
+  // The ebook PDF lives outside `public/` (never web-served) but must be bundled
+  // into the Stripe webhook's serverless function so it can be read + attached
+  // to the delivery email at runtime.
+  outputFileTracingIncludes: {
+    "/api/stripe/webhook": ["./assets/ebook/**"],
+  },
 };
 
 export default nextConfig;
