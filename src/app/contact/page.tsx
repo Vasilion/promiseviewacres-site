@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContactForm from "@/components/ContactForm";
+import Button from "@/components/Button";
 import { YoutubeIcon, InstagramIcon, TikTokIcon } from "@/components/Icons";
 import { site } from "@/content/site";
 
@@ -31,18 +31,26 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="mt-10 rounded-3xl border border-earth/10 bg-linen/60 p-6 sm:p-9">
-          <ContactForm />
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-sm text-earth/60">Or reach us directly</p>
+        <div className="mt-10 rounded-3xl border border-earth/10 bg-linen/60 p-8 text-center sm:p-10">
+          <p className="mx-auto max-w-md text-earth/75">
+            The best way to reach us right now is by email. Click below and
+            we&apos;ll get back to you as soon as we can.
+          </p>
+          <div className="mt-6">
+            <Button href={`mailto:${site.email}`} external>
+              Email Us
+            </Button>
+          </div>
           <a
             href={`mailto:${site.email}`}
-            className="mt-1 inline-block font-medium text-evergreen hover:text-evergreen-deep"
+            className="mt-5 inline-block text-sm font-medium text-evergreen hover:text-evergreen-deep"
           >
             {site.email}
           </a>
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-earth/60">Follow along</p>
           <div className="mt-6 flex items-center justify-center gap-6 text-sage">
             <a
               href={site.youtube}
