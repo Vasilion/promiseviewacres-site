@@ -71,6 +71,10 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error("[stripe] ebook delivery failed:", err);
     // 500 → Stripe retries with backoff, so a transient SES blip self-heals.
-    return NextResponse.json({ error: "Delivery failed." }, { status: 500 });
+    // `detail` surfaces the underlying SES error in Stripe's delivery log so
+    // failures can be diagnosed without CloudWatch access. Machine-only endpoint.
+    const detail =
+      err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    return NextResponse.json({ error: "Delivery failed.", detail }, { status: 500 });
   }
 }
