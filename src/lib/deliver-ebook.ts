@@ -10,6 +10,12 @@ import { ebook } from "@/content/ebook";
 const REGION =
   process.env.CONTACT_SES_REGION || process.env.AWS_REGION || "us-east-1";
 const FROM = process.env.CONTACT_FROM_EMAIL;
+// The From address should be a verified *domain* sender (e.g.
+// no-reply@promiseviewacres.com) so DKIM/DMARC align and mail isn't spam-foldered
+// — never a gmail.com From, which can't be authenticated. But a no-reply@ mailbox
+// isn't monitored, so point replies at a real inbox. Falls back to a monitored
+// address so "just reply to this email" actually reaches someone.
+const REPLY_TO = process.env.CONTACT_REPLY_TO || "promiseviewacres@gmail.com";
 
 /**
  * Email the ebook PDF as an attachment to a buyer. Throws if SES isn't
@@ -55,6 +61,7 @@ export async function deliverEbook(to: string, buyerName?: string): Promise<void
   const raw = await new MailComposer({
     from: FROM,
     to,
+    replyTo: REPLY_TO,
     subject: `Your copy of ${ebook.title}`,
     text,
     html,
